@@ -1,0 +1,29 @@
+[versions]
+kotlin = "1.8.20"
+kotlinx-serialization-protobuf = "1.5.1"
+ktor = "2.3.1"
+kotlin-coroutines = "1.6.4"
+kotlin-serialisation = "1.5.1"
+napier = "2.6.1"
+slf4j = "1.7.36"
+[plugins]
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-serialisation = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+[libraries]
+#ktor common
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-protobuf" }
+kotlinx-serialization-protobuf = { module = "org.jetbrains.kotlinx:kotlinx-serialization-protobuf", version.ref = "kotlinx-serialization-protobuf" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-serialisation-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-serialisation-protobuf = { module = "io.ktor:ktor-serialization-kotlinx-protobuf", version.ref = "ktor" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+#ktor platform
+ktor-client-android = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+slf4j = { module = "org.slf4j:slf4j-android", version.ref = "slf4j" }
+#other
+kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
+napier = { module = "io.github.aakira:napier", version.ref = "napier" }
+[bundles]
+ktor-common = ["ktor-client-core", "ktor-client-content-negotiation", "ktor-serialisation-protobuf", "ktor-client-logging"]
