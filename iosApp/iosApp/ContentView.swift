@@ -5,7 +5,7 @@ struct ContentView: View {
     
     let api = TheMovieDbApi()
     
-    @State var upcoming: ApimodelsUpcomingMoviesDto? = nil
+    @State var upcoming: UpcomingMoviesDto? = nil
     
     @State var errorMessage: String? = nil
 

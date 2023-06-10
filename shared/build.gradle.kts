@@ -22,6 +22,9 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "shared"
+            // https://kotlinlang.org/docs/multiplatform-build-native-binaries.html#export-dependencies-to-binaries
+            // this exports apimodels module directly to swift framework. api is required in commonMain
+            export(project(":apimodels"))
         }
     }
 
