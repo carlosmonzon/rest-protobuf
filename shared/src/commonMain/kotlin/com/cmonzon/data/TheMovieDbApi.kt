@@ -1,6 +1,8 @@
 package com.cmonzon.data
 
 import com.cmonzon.apimodels.UpcomingMoviesDto
+import com.cmonzon.rest_protobuf.Platform
+import com.cmonzon.rest_protobuf.getEmulatorLocalHost
 import io.github.aakira.napier.DebugAntilog
 import io.github.aakira.napier.Napier
 import io.ktor.client.HttpClient
@@ -15,6 +17,8 @@ import io.ktor.serialization.kotlinx.protobuf.protobuf
 import kotlinx.serialization.protobuf.ProtoBuf
 
 class TheMovieDbApi {
+
+    private val baseUrl = getEmulatorLocalHost()
     private val client = HttpClient {
         expectSuccess = true
         responseValidator()
@@ -31,6 +35,6 @@ class TheMovieDbApi {
 
     suspend fun getUpcoming() = client.safeRequest<UpcomingMoviesDto, Any> {
         method = HttpMethod.Get
-        url("http://10.0.2.2:8080/movie/upcoming")
+        url("${baseUrl}movie/upcoming")
     }
 }

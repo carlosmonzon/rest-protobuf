@@ -2,6 +2,7 @@
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.serialisation)
+    alias(libs.plugins.moko.kswift)
     id("com.android.library")
 }
 
@@ -77,4 +78,11 @@ android {
     defaultConfig {
         minSdk = 24
     }
+}
+
+// https://github.com/icerockdev/moko-kswift
+kswift {
+    install(dev.icerock.moko.kswift.plugin.feature.SealedToSwiftEnumFeature)
+    includeLibrary("shared")
+    iosDeploymentTarget.set("14.1")
 }
