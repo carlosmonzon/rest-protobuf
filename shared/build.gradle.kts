@@ -85,15 +85,15 @@ android {
     }
 }
 
+addGithubPackagesRepository()
 // https://kmmbridge.touchlab.co/docs/DEFAULT_GITHUB_FLOW/
 kmmbridge {
     frameworkName.set("DataKit")
     mavenPublishArtifacts()
     githubReleaseVersions()
     spm()
-    versionPrefix.set("0.1")
+    versionPrefix.set("Datakit-0.1")
 }
-addGithubPackagesRepository()
 
 // https://github.com/icerockdev/moko-kswift
 kswift {
