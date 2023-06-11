@@ -22,13 +22,16 @@ struct ContentView: View {
                 EmptyView()
             }
         }.onAppear {
-            getData()
+            Task {
+                await getData()
+            }
         }
 	}
     
-    func getData() {
-        api.getUpcoming { result, error in
-            guard let result else { return }
+    @MainActor
+    func getData() async {
+        do {
+            let result = try await api.getUpcoming()
             switch ApiResponseKs(result) {
             case .error(let errorResponse):
                 switch ApiResponseErrorKs(errorResponse) {
@@ -44,6 +47,8 @@ struct ContentView: View {
             case .success(let successResponse):
                 upcoming = successResponse.body
             }
+        } catch {
+            errorMessage = "Unknown error"
         }
     }
 }
