@@ -92,7 +92,7 @@ kmmbridge {
     mavenPublishArtifacts()
     githubReleaseVersions()
     spm()
-    versionPrefix.set("Datakit-0.1")
+    versionPrefix.set("0.1")
 }
 
 // https://github.com/icerockdev/moko-kswift
