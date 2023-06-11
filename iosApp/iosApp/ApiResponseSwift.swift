@@ -1,4 +1,4 @@
-import shared
+import DataKit
 
 /**
  * selector: ClassContext/rest-protobuf:shared/com/cmonzon/data/ApiResponse.Error */
@@ -12,24 +12,24 @@ public enum ApiResponseErrorKs<E : AnyObject> {
   public var sealed: ApiResponseError<E> {
     switch self {
     case .httpError(let obj):
-      return obj as shared.ApiResponseError<E>
+      return obj as DataKit.ApiResponseError<E>
     case .networkError:
-      return shared.ApiResponseErrorNetworkError() as! shared.ApiResponseError<E>
+      return DataKit.ApiResponseErrorNetworkError() as! DataKit.ApiResponseError<E>
     case .serializationError:
-      return shared.ApiResponseErrorSerializationError() as! shared.ApiResponseError<E>
+      return DataKit.ApiResponseErrorSerializationError() as! DataKit.ApiResponseError<E>
     case .unauthorizedException:
-      return shared.ApiResponseErrorUnauthorizedException() as! shared.ApiResponseError<E>
+      return DataKit.ApiResponseErrorUnauthorizedException() as! DataKit.ApiResponseError<E>
     }
   }
 
   public init(_ obj: ApiResponseError<E>) {
-    if let obj = obj as? shared.ApiResponseErrorHttpError<E> {
+    if let obj = obj as? DataKit.ApiResponseErrorHttpError<E> {
       self = .httpError(obj)
-    } else if obj is shared.ApiResponseErrorNetworkError {
+    } else if obj is DataKit.ApiResponseErrorNetworkError {
       self = .networkError
-    } else if obj is shared.ApiResponseErrorSerializationError {
+    } else if obj is DataKit.ApiResponseErrorSerializationError {
       self = .serializationError
-    } else if obj is shared.ApiResponseErrorUnauthorizedException {
+    } else if obj is DataKit.ApiResponseErrorUnauthorizedException {
       self = .unauthorizedException
     } else {
       fatalError("ApiResponseErrorKs not synchronized with ApiResponseError class")
@@ -48,16 +48,16 @@ public enum ApiResponseKs<T : AnyObject, E : AnyObject> {
   public var sealed: ApiResponse<T, E> {
     switch self {
     case .error(let obj):
-      return obj as! shared.ApiResponse<T, E>
+      return obj as! DataKit.ApiResponse<T, E>
     case .success(let obj):
-      return obj as! shared.ApiResponse<T, E>
+      return obj as! DataKit.ApiResponse<T, E>
     }
   }
 
   public init(_ obj: ApiResponse<T, E>) {
-    if let obj = obj as? shared.ApiResponseError<E> {
+    if let obj = obj as? DataKit.ApiResponseError<E> {
       self = .error(obj)
-    } else if let obj = obj as? shared.ApiResponseSuccess<T> {
+    } else if let obj = obj as? DataKit.ApiResponseSuccess<T> {
       self = .success(obj)
     } else {
       fatalError("ApiResponseKs not synchronized with ApiResponse class")
