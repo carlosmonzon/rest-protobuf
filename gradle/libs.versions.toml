@@ -7,10 +7,12 @@ kotlin-coroutines = "1.6.4"
 kotlin-serialisation = "1.5.1"
 napier = "2.6.1"
 slf4j = "1.7.36"
+kmmbridge = "0.3.7"
 [plugins]
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin-serialisation = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 moko-kswift = { id = "dev.icerock.moko.kswift", version.ref = "kswift" }
+touchlab-kmmbridge = { id = "co.touchlab.faktory.kmmbridge", version.ref = "kmmbridge" }
 [libraries]
 #ktor common
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-protobuf" }

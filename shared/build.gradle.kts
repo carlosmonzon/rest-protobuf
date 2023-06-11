@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.serialisation)
     alias(libs.plugins.moko.kswift)
+    alias(libs.plugins.touchlab.kmmbridge)
+    id("maven-publish")
     id("com.android.library")
 }
 
@@ -21,7 +23,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "shared"
+            baseName = "DataKit"
             // https://kotlinlang.org/docs/multiplatform-build-native-binaries.html#export-dependencies-to-binaries
             // this exports apimodels module directly to swift framework. api is required in commonMain
             export(project(":apimodels"))
@@ -82,6 +84,16 @@ android {
         minSdk = 24
     }
 }
+
+// https://kmmbridge.touchlab.co/docs/DEFAULT_GITHUB_FLOW/
+kmmbridge {
+    frameworkName.set("DataKit")
+    mavenPublishArtifacts()
+    githubReleaseVersions()
+    spm()
+    versionPrefix.set("0.1")
+}
+addGithubPackagesRepository()
 
 // https://github.com/icerockdev/moko-kswift
 kswift {
