@@ -1,3 +1,6 @@
+import org.gradle.configurationcache.extensions.capitalized
+import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBuildType
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -7,6 +10,8 @@ plugins {
     id("maven-publish")
     id("com.android.library")
 }
+
+val libraryName = "DataKit"
 
 kotlin {
     android {
@@ -23,7 +28,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "DataKit"
+            baseName = libraryName
             // https://kotlinlang.org/docs/multiplatform-build-native-binaries.html#export-dependencies-to-binaries
             // this exports apimodels module directly to swift framework. api is required in commonMain
             export(project(":apimodels"))
@@ -88,7 +93,7 @@ android {
 addGithubPackagesRepository()
 // https://kmmbridge.touchlab.co/docs/DEFAULT_GITHUB_FLOW/
 kmmbridge {
-    frameworkName.set("DataKit")
+    frameworkName.set(libraryName)
     mavenPublishArtifacts()
     githubReleaseVersions()
     spm()
@@ -100,4 +105,22 @@ kswift {
     install(dev.icerock.moko.kswift.plugin.feature.SealedToSwiftEnumFeature)
     includeLibrary("shared")
     iosDeploymentTarget.set("14.1")
+}
+
+// Register a task per build type: ie: Debug, Release which copies the XCFramework
+// from the shared build folder to the iOS project
+NativeBuildType.DEFAULT_BUILD_TYPES.forEach { buildType ->
+    val buildTypeName = buildType.name.lowercase()
+    val buildTypeCapitalised = buildType.name.lowercase().capitalized()
+    val iOSDir = project.projectDir.parent.plus("/iosApp/frameworks/${buildTypeName}/")
+    tasks.register<Copy>("copy${buildTypeCapitalised}${libraryName}XCFramework") {
+        group = "Publishing"
+        description = "Copy $libraryName(${buildTypeCapitalised}) iOs framework to the iOS project"
+        dependsOn("assemble${libraryName}${buildTypeCapitalised}XCFramework")
+        from(layout.buildDirectory.dir("XCFrameworks/${buildTypeName}/"))
+        into(iOSDir)
+        doFirst {
+            println("${buildTypeName}.xcframework(${buildTypeName}) successfully written out to: $iOSDir")
+        }
+    }
 }
