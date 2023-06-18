@@ -11,8 +11,7 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
-		E47C28392A349761009B9F97 /* ApiResponseSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47C28382A349761009B9F97 /* ApiResponseSwift.swift */; };
-		E48C7DCD2A35F14300425975 /* DataKit in Frameworks */ = {isa = PBXBuildFile; productRef = E48C7DCC2A35F14300425975 /* DataKit */; };
+		E4CD37082A3EF97D0066D4D3 /* DataKitUmbrella in Frameworks */ = {isa = PBXBuildFile; productRef = E4CD37072A3EF97D0066D4D3 /* DataKitUmbrella */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,8 +34,7 @@
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E47C28382A349761009B9F97 /* ApiResponseSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseSwift.swift; sourceTree = "<group>"; };
-		E48C7DCB2A35F12900425975 /* restprotobuf */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = restprotobuf; path = ..; sourceTree = "<group>"; };
+		E4CD37062A3EF96F0066D4D3 /* DataKitUmbrella */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DataKitUmbrella; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E48C7DCD2A35F14300425975 /* DataKit in Frameworks */,
+				E4CD37082A3EF97D0066D4D3 /* DataKitUmbrella in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +60,7 @@
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
-				E48C7DCA2A35F12900425975 /* Packages */,
+				E4CD37042A3EEF6A0066D4D3 /* Packages */,
 				7555FF7D242A565900829871 /* iosApp */,
 				7555FF7C242A565900829871 /* Products */,
 				7555FFB0242A642200829871 /* Frameworks */,
@@ -85,7 +83,6 @@
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
-				E47C28382A349761009B9F97 /* ApiResponseSwift.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -97,12 +94,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E48C7DCA2A35F12900425975 /* Packages */ = {
+		E4CD37042A3EEF6A0066D4D3 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				E48C7DCB2A35F12900425975 /* restprotobuf */,
+				E4CD37062A3EF96F0066D4D3 /* DataKitUmbrella */,
 			);
-			name = Packages;
+			path = Packages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,7 +120,7 @@
 			);
 			name = iosApp;
 			packageProductDependencies = (
-				E48C7DCC2A35F14300425975 /* DataKit */,
+				E4CD37072A3EF97D0066D4D3 /* DataKitUmbrella */,
 			);
 			productName = iosApp;
 			productReference = 7555FF7B242A565900829871 /* iosApp.app */;
@@ -181,7 +178,6 @@
 			files = (
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
-				E47C28392A349761009B9F97 /* ApiResponseSwift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,9 +362,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E48C7DCC2A35F14300425975 /* DataKit */ = {
+		E4CD37072A3EF97D0066D4D3 /* DataKitUmbrella */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = DataKit;
+			productName = DataKitUmbrella;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -13,15 +13,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.cmonzon.apimodels.UpcomingMoviesDto
 import com.cmonzon.data.ApiResponse
 import com.cmonzon.data.TheMovieDbApi
-import com.cmonzon.rest_protobuf.Greeting
-import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
 
@@ -34,7 +31,7 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
                 ) {
-                    GreetingView(Greeting().greet())
+                    GreetingView()
                 }
             }
         }
@@ -44,9 +41,8 @@ class MainActivity : ComponentActivity() {
 val api = TheMovieDbApi()
 
 @Composable
-fun GreetingView(text: String) {
+fun GreetingView() {
     Column(Modifier.padding(horizontal = 16.dp, vertical = 16.dp)) {
-        Text(text = text)
         val upcoming = remember {
             mutableStateOf<UpcomingMoviesDto?>(null)
         }
@@ -86,6 +82,6 @@ fun GreetingView(text: String) {
 @Composable
 fun DefaultPreview() {
     MyApplicationTheme {
-        GreetingView("Hello, Android!")
+        GreetingView()
     }
 }

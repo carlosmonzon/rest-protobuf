@@ -1,7 +1,6 @@
 package com.cmonzon.data
 
 import com.cmonzon.apimodels.UpcomingMoviesDto
-import com.cmonzon.rest_protobuf.Platform
 import com.cmonzon.rest_protobuf.getEmulatorLocalHost
 import io.github.aakira.napier.DebugAntilog
 import io.github.aakira.napier.Napier
@@ -14,11 +13,13 @@ import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.request.url
 import io.ktor.http.HttpMethod
 import io.ktor.serialization.kotlinx.protobuf.protobuf
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.protobuf.ProtoBuf
 
 class TheMovieDbApi {
 
     private val baseUrl = getEmulatorLocalHost()
+    @OptIn(ExperimentalSerializationApi::class)
     private val client = HttpClient {
         expectSuccess = true
         responseValidator()
