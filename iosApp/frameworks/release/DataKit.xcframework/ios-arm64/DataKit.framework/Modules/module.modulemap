@@ -1,0 +1,8 @@
+framework module DataKit {
+    umbrella header "DataKit.h"
+
+    export *
+    module * { export * }
+
+    use Foundation
+}
