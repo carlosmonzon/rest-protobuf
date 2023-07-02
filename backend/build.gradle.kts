@@ -3,9 +3,9 @@ val kotlin_version: String by project
 val logback_version: String by project
 
 plugins {
-    kotlin("jvm")
     id("io.ktor.plugin") version "2.3.1"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.8.21"
+    id("org.jetbrains.kotlin.jvm") version  "1.8.21"
 }
 
 group = "com.cmonzon"
@@ -22,7 +22,7 @@ repositories {
 }
 
 dependencies {
-    implementation(project(":apimodels"))
+    implementation(libs.cmonzon.platform.common)
     // TODO: migrate to version catalog
     implementation("io.ktor:ktor-server-core-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-content-negotiation-jvm:$ktor_version")

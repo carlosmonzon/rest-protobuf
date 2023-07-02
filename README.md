@@ -1,29 +1,17 @@
 # rest-protobuf
 
+Monorepo setup using Gradle [composite builds](https://docs.gradle.org/current/userguide/composite_builds.html) to demostrate
+
 ## Requirements 
 - KMM Setup -> https://github.com/Kotlin/kdoctor
-- Tested with Android Studio Giraffe | 2022.3.1 Beta 5
+- Tested with Android Studio Giraffe | 2022.3.1 Beta 5 and IntelliJ IDEA 2023.2 EAP (Community Edition
 - Java 17
-- KMM Setup -> https://github.com/Kotlin/kdoctor
 
-## Run server
+## Run backend
 
-`./gradlew :backend:run`
+Go to [Backend README](backend/README.md) for instructions.
 
-## Android app
+## Mobile apps apps
 
-Make sure you run it in a simulator only as the server is running locally.
-Android emulator uses: `"http://10.0.2.2:8080/"`
+Go to [Backend README](restprotobuf-app/README.md) for instructions.
 
-## iOS app 
-
-Make sure you run it in a simulator only as the server is running locally.
-iOS simulator uses: `"http://localhost:8080/"`
-
-### Update DataKit XCFramework into iOS app
-
-*Release XCFramework*
-`./gradlew :shared:copyReleaseXCFramework`
-
-*Debug XCFramework*
-`./gradlew :shared:copyDebugXCFramework`
