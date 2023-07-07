@@ -1,26 +1,36 @@
 [versions]
-kotlin = "1.8.21"
-kotlinx-serialization-protobuf = "1.5.1"
+kotlin = "1.9.0"
+gradle-kotlin-dsl = "4.0.14"
 kswift = "0.6.1"
-ktor = "2.3.1"
-kotlin-coroutines = "1.6.4"
-kotlin-serialisation = "1.5.1"
+ktor = "2.3.2"
+kotlin-coroutines = "1.7.2"
+kotlinx-serialisation = "1.5.1"
+material = "1.4.3"
 napier = "2.6.1"
 slf4j = "1.7.36"
 kmmbridge = "0.3.7"
-androidGradlePlugin = "8.1.0-beta05"
+androidGradlePlugin = "8.1.0-rc01"
+activityCompose = "1.7.2"
+compose-foundation = "1.6.0-alpha01"
+compose-compiler = "1.5.0-dev-k1.9.0-6a60475e07f"
+logback-classic = "1.2.11"
 [plugins]
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin-serialisation = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 moko-kswift = { id = "dev.icerock.moko.kswift", version.ref = "kswift" }
 touchlab-kmmbridge = { id = "co.touchlab.faktory.kmmbridge", version.ref = "kmmbridge" }
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
-android-library = { id = "com.android.library", version.ref = "androidGradlePlugin"}
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+kotlin-dsl = { id = "org.gradle.kotlin.kotlin-dsl", version.ref = "gradle-kotlin-dsl" }
+ktor-plugin = { id = "io.ktor.plugin", version.ref = "ktor" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin"}
 
 [libraries]
 #ktor common
-kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-protobuf" }
-kotlinx-serialization-protobuf = { module = "org.jetbrains.kotlinx:kotlinx-serialization-protobuf", version.ref = "kotlinx-serialization-protobuf" }
+activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
+foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose-foundation" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialisation" }
+kotlinx-serialization-protobuf = { module = "org.jetbrains.kotlinx:kotlinx-serialization-protobuf", version.ref = "kotlinx-serialisation" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-serialisation-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
@@ -29,12 +39,23 @@ ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "k
 #ktor platform
 ktor-client-android = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+material = { module = "androidx.compose.material:material", version.ref = "material" }
 slf4j = { module = "org.slf4j:slf4j-android", version.ref = "slf4j" }
 build-androidgradleplugin = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }
+#ktor server
+ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor"}
+ktor-server-content-negociation = { module = "io.ktor:ktor-server-content-negotiation-jvm", version.ref = "ktor" }
+ktor-server-netty = {module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor"}
+ktor-server-tests = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "ktor"}
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback-classic"}
+kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin"}
 # cmonzon libraries
 cmonzon-platform-common = "com.cmonzon:platform-common:1.0-SNAPSHOT"
 #other
 kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
+ui = { module = "androidx.compose.ui:ui", version.ref = "compose-foundation" }
+ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-foundation" }
+ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-foundation" }
 [bundles]
 ktor-common = ["ktor-client-core", "ktor-client-content-negotiation", "ktor-serialisation-protobuf", "ktor-client-logging"]

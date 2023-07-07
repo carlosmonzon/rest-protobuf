@@ -13,13 +13,8 @@ plugins {
 val libraryName = "DataKit"
 
 kotlin {
-    android {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "1.8"
-            }
-        }
-    }
+    androidTarget ()
+    jvmToolchain(17)
 
     listOf(
         iosX64(),
@@ -83,7 +78,7 @@ kotlin {
 
 android {
     namespace = "com.cmonzon.rest_protobuf"
-    compileSdk = 33
+    compileSdk = 34
     defaultConfig {
         minSdk = 24
     }

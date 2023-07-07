@@ -1,6 +1,8 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    `kotlin-dsl`
+    alias(libs.plugins.kotlin.dsl)
     alias(libs.plugins.kotlin.multiplatform) apply false
 }
 
