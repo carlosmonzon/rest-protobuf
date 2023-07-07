@@ -1,6 +1,6 @@
 # rest-protobuf
 
-Monorepo setup using Gradle [composite builds](https://docs.gradle.org/current/userguide/composite_builds.html) to demostrate
+Monorepo setup using Gradle [composite builds](https://docs.gradle.org/current/userguide/composite_builds.html) to demostrate a composite multi project configuration using kotlin multiplatform
 
 ## Requirements 
 - KMM Setup -> https://github.com/Kotlin/kdoctor
