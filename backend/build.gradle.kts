@@ -1,18 +1,13 @@
-val ktor_version: String by project
-val kotlin_version: String by project
-val logback_version: String by project
-
 plugins {
-    kotlin("jvm")
-    id("io.ktor.plugin") version "2.3.1"
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.8.21"
+    alias(libs.plugins.ktor.plugin)
+    alias(libs.plugins.kotlin.serialisation)
+    alias(libs.plugins.kotlin.jvm)
 }
 
 group = "com.cmonzon"
 version = "0.0.1"
 application {
     mainClass.set("com.cmonzon.ApplicationKt")
-
     val isDevelopment: Boolean = project.ext.has("development")
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
 }
@@ -22,14 +17,13 @@ repositories {
 }
 
 dependencies {
-    implementation(project(":apimodels"))
-    // TODO: migrate to version catalog
-    implementation("io.ktor:ktor-server-core-jvm:$ktor_version")
-    implementation("io.ktor:ktor-server-content-negotiation-jvm:$ktor_version")
-    implementation("io.ktor:ktor-serialization-kotlinx-json-jvm:$ktor_version")
-    implementation("io.ktor:ktor-serialization-kotlinx-protobuf-jvm:$ktor_version")
-    implementation("io.ktor:ktor-server-netty-jvm:$ktor_version")
-    implementation("ch.qos.logback:logback-classic:$logback_version")
-    testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+    implementation(libs.cmonzon.platform.common)
+    implementation(libs.ktor.server.core)
+    implementation(libs.ktor.server.content.negociation)
+    implementation(libs.ktor.serialisation.json)
+    implementation(libs.ktor.serialisation.protobuf)
+    implementation(libs.ktor.server.netty)
+    implementation(libs.logback.classic)
+    testImplementation(libs.ktor.server.tests)
+    testImplementation(libs.kotlin.test.junit)
 }
