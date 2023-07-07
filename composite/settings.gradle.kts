@@ -18,3 +18,4 @@ dependencyResolutionManagement {
 includeBuild("../build-system")
 includeBuild("../platform-common")
 includeBuild("../restprotobuf-app")
+includeBuild("../backend")

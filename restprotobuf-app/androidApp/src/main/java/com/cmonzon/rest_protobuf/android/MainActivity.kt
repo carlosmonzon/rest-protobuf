@@ -66,7 +66,7 @@ fun GreetingView() {
 
         if (upcoming.value != null) {
             val list = upcoming.value!!.results
-            val something = upcoming.value!!.something_new
+            val something = upcoming.value!!
             LazyColumn {
                 items(list) { item ->
                     Text(
