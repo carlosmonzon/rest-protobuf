@@ -6,8 +6,8 @@ plugins {
     alias(libs.plugins.kotlin.serialisation)
     alias(libs.plugins.moko.kswift)
     alias(libs.plugins.touchlab.kmmbridge)
+    alias(libs.plugins.android.library)
     id("maven-publish")
-    id("com.android.library")
 }
 
 val libraryName = "DataKit"

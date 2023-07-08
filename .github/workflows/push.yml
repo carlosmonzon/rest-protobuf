@@ -12,9 +12,9 @@ jobs:
               with:
                   distribution: temurin
                   java-version: 17
-
-            - name: Backend 'build' task
+            - name: Composite 'build' tasks
               uses: gradle/gradle-build-action@v2
               with:
-                  arguments: :backend:build
+                  arguments: compositeChecks
+                  gradle-executable: build-system/gradle
                   build-root-directory: composite
