@@ -16,5 +16,4 @@ jobs:
               uses: gradle/gradle-build-action@v2
               with:
                   arguments: compositeChecks
-                  gradle-executable: build-system/gradle
                   build-root-directory: composite
