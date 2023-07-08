@@ -4,7 +4,7 @@ Monorepo setup using Gradle [composite builds](https://docs.gradle.org/current/u
 
 ## Requirements 
 - KMM Setup -> https://github.com/Kotlin/kdoctor
-- Tested with Android Studio Giraffe | 2022.3.1 Beta 5 and IntelliJ IDEA 2023.2 EAP (Community Edition
+- Tested with Android Studio Hedgehog | 2023.1.1 Canary 11 and IntelliJ IDEA 2023.2 EAP (Community Edition
 - Java 17
 
 ## Run backend
