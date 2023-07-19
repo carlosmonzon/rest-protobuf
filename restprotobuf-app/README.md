@@ -2,7 +2,7 @@
 
 ## Requirements 
 - KMM Setup -> https://github.com/Kotlin/kdoctor
-- Tested with Android Studio Giraffe | 2022.3.1 Beta 5
+- Tested with Android Studio Hedgehog | 2023.1.1 Canary 11
 - Java 17
 
 ## Run server
