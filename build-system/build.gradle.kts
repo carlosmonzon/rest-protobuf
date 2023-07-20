@@ -8,11 +8,11 @@ plugins {
 
 // any plugin required
 //gradlePlugin {
-//    plugins.register("example-plugin") {
-//        id = "example-plugin"
-//        implementationClass = "org.example.ExamplePlugin"
+//    plugins.register("versionCatalogPlugin") {
+//        id = "version-catalog-plugin"
+//        implementationClass = "com.cmonzon.VersionCatalogPlugin"
 //    }
 //}
 
-group = "com.monzon"
+group = "com.cmonzon"
 version = "1.0-SNAPSHOT"

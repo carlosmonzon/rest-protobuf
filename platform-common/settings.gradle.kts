@@ -11,6 +11,12 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
+
+    versionCatalogs {
+        create("libs") {
+            from(files("../build-system/gradle/libs.versions.toml"))
+        }
+    }
 }
 
 rootProject.name = "platform-common"

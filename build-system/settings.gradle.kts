@@ -13,6 +13,11 @@ dependencyResolutionManagement {
     repositories {
         configureCommonRepositories()
     }
+    versionCatalogs {
+        create("platform") {
+            from(files("gradle/libs.versions.toml"))
+        }
+    }
 }
 
 rootProject.name = "build-system"

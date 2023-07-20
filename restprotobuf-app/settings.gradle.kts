@@ -12,6 +12,11 @@ dependencyResolutionManagement {
         mavenCentral()
         maven("https://androidx.dev/storage/compose-compiler/repository")
     }
+    versionCatalogs {
+        create("libs") {
+            from(files("../build-system/gradle/libs.versions.toml"))
+        }
+    }
 }
 
 rootProject.name = "rest-protobuf-app"

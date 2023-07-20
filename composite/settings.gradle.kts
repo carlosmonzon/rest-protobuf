@@ -13,6 +13,11 @@ dependencyResolutionManagement {
     repositories {
         configureCommonRepositories()
     }
+    versionCatalogs {
+        create("libs") {
+            from(files("../build-system/gradle/libs.versions.toml"))
+        }
+    }
 }
 
 includeBuild("../build-system")
