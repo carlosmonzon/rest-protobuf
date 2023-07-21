@@ -1,0 +1,13 @@
+site_name: Rest Protobuf
+
+nav:
+  - Intro: 'README.md'
+  - Setup: 'setup.md'
+  - Backend: '!include ./backend/mkdocs.yml'
+  - App: '!include ./restprotobuf-app/mkdocs.yml'
+
+theme:
+  name: material
+
+plugins:
+  - monorepo

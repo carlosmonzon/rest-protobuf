@@ -1,0 +1,4 @@
+site_name: rest-protobuf/restprotobuf-app
+
+nav:
+  - Intro: 'README.md'
