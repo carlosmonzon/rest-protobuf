@@ -1,20 +1,15 @@
 # rest-protobuf
 
-## Requirements 
-- KMM Setup -> https://github.com/Kotlin/kdoctor
-- Tested with Android Studio Hedgehog | 2023.1.1 Canary 11
-- Java 17
-
 ## Run server
 
-Go to `../backend` for instructions on how to run the backend
+Go to *backend* section for instructions on how to run the backend
 
 ## Android app
 
 Make sure you run it in a simulator only as the server is running locally.
 Android emulator uses: `"http://10.0.2.2:8080/"`
 
-## iOS app 
+## iOS app
 
 Make sure you run it in a simulator only as the server is running locally.
 iOS simulator uses: `"http://localhost:8080/"`

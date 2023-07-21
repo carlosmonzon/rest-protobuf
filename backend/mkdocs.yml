@@ -1,0 +1,4 @@
+site_name: rest-protobuf/backend
+
+nav:
+  - Intro: 'README.md'
