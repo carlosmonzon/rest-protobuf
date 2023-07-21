@@ -1,5 +1,12 @@
 site_name: Rest Protobuf
 
+# Repository
+repo_name: carlosmonzon/rest-protobuf
+repo_url: https://github.com/carlosmonzon/rest-protobuf
+
+# Copyright
+copyright: Copyright &copy; 2023 Carlos Monzon
+
 nav:
   - Intro: 'README.md'
   - Setup: 'setup.md'
@@ -10,4 +17,9 @@ theme:
   name: material
 
 plugins:
+  - search:
+        separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+        minify_html: true
   - monorepo
+
