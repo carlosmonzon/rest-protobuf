@@ -1,6 +1,9 @@
 package com.cmonzon.plugins
 
 import com.cmonzon.apimodels.UpcomingMoviesDto
+import com.cmonzon.module
+import io.ktor.http.*
+import io.ktor.serialization.kotlinx.json.*
 import io.ktor.serialization.kotlinx.protobuf.protobuf
 import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.response.*
@@ -12,18 +15,26 @@ import kotlinx.serialization.protobuf.ProtoBuf
 
 @OptIn(ExperimentalSerializationApi::class)
 fun Application.configureSerialization() {
-    install(ContentNegotiation) {
-        protobuf(ProtoBuf {
-            encodeDefaults = true
-        })
-    }
     routing {
-        get("/movie/upcoming") {
-            val upcomingMovies = FileReader.readJsonFile()
-            if (upcomingMovies != null) {
-                call.respond(upcomingMovies)
-            } else {
-                call.respond("Empty")
+        v1Route {
+            get("/movie/upcoming") {
+                val upcomingMovies = FileReader.readJsonFile()
+                if (upcomingMovies != null) {
+                    call.respond(upcomingMovies)
+                } else {
+                    call.respond("Empty")
+                }
+            }
+        }
+
+        v2Route {
+            get("/movie/upcoming") {
+                val upcomingMovies = FileReader.readJsonFile()
+                if (upcomingMovies != null) {
+                    call.respond(upcomingMovies)
+                } else {
+                    call.respond("Empty")
+                }
             }
         }
     }
